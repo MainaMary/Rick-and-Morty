@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #222;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Poppins", sans-serif;
+}
+.title {
+  color: aqua;
+  font-weight: 500;
+  font-size: 42px;
+  text-align: center;
+  margin: 20px 0;
+}
+.nav_wrapper {
+}
+.btn_wrapper {
+  display: flex;
+  text-align: center;
+  width: 40%;
+  margin: auto;
+}
+.btn {
+  padding: 12px 16px;
+  font-size: 16px;
+  text-transform: uppercase;
+  text-align: center;
+  outline: none;
+  background-color: aqua;
+  border: none;
+  border-radius: 5px;
+  width: 200px;
+  color: #000;
+  margin: auto;
+}
+.btn:hover {
+  color: aqua;
+  border: 1px solid aqua;
+  background-color: #fff;
+}
+.content {
+  display: flex;
+  width: 1000px;
+  justify-content: center;
+  margin: auto;
+}
+.container {
+  text-align: start;
+  width: 100%;
+}
+/* episode card */
+.episode_Card {
+  box-shadow: 0 0 3px #000;
+  padding: 10px 12px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #fff;
+  border-radius: 5px;
+}
+.episode_Wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 3fr));
+  grid-gap: 3rem;
+  margin: 40px auto;
+}
+.image_card {
+  width: 280px;
+  border-radius: 5px;
+}
+
+.btn_pagination {
+  padding: 12px 16px;
+  font-size: 16px;
+
+  text-align: center;
+  outline: none;
+  background-color: aqua;
+  border: none;
+  border-radius: 5px;
+  width: 100px;
+  color: #000;
+  margin: auto;
+}
