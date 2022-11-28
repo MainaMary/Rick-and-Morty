@@ -10,7 +10,7 @@ function App() {
       <Navbar handleClick={setActiveMenu} />
       <div className="content">
         <div className="container">
-          {activeMenu === "Episodes" ? <Episodes /> : <Characters />}
+          {activeMenu === "Characters" ? <Characters /> : <Episodes />}
         </div>
       </div>
     </div>
