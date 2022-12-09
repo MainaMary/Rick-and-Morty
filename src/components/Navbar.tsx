@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 
 interface Props {
   handleClick: React.Dispatch<React.SetStateAction<string>>;

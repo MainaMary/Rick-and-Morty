@@ -10,10 +10,13 @@ const Characters = () => {
     const response = await axios(`${baseUrl}/character?page=${page}`);
     return response?.data;
   };
-  const { data, error, isSuccess, isFetching, isError, isPreviousData }: any =
-    useQuery(["fetchCharacters", page], () => fetchCharacters(page), {
+  const { data, error, isSuccess, isFetching, isError }: any = useQuery(
+    ["fetchCharacters", page],
+    () => fetchCharacters(page),
+    {
       keepPreviousData: true,
-    });
+    }
+  );
   console.log(data, "characters");
   if (isError) return <p>{`An error has occured ${error.message}`}</p>;
   console.log(page, "page");
