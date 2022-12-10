@@ -31,14 +31,7 @@ const Characters = () => {
             ))
           : null}
       </div>
-      <div
-        style={{
-          display: "flex",
-          width: "100%",
-          justifyContent: "space-between",
-          margin: "40px 0",
-        }}
-      >
+      <div className="btn_wrapper">
         <button
           className="btn_pagination"
           onClick={() => setPage((old) => Math.max(old - 1, 0))}

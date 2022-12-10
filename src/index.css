@@ -85,3 +85,9 @@ body {
   color: #000;
   margin: auto;
 }
+.btn_wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin: 40px 0;
+}
