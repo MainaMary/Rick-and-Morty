@@ -4,10 +4,10 @@ import Characters from "./components/Characters";
 import Episodes from "./components/Episodes";
 
 function App() {
-  const [activeMenu, setActiveMenu] = useState<string>("Episodes");
+  const [activeMenu, setActiveMenu] = useState<string>("Characters");
   return (
     <div className="App">
-      <Navbar handleClick={setActiveMenu} />
+      <Navbar handleClick={setActiveMenu} activeMenu={activeMenu} />
       <div className="content">
         <div className="container">
           {activeMenu === "Characters" ? <Characters /> : <Episodes />}
