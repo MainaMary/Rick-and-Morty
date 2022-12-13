@@ -36,6 +36,7 @@ body {
   width: 15%;
   color: #000;
   margin: auto;
+  cursor: pointer;
 }
 .btn:hover {
   color: aqua;
@@ -110,5 +111,42 @@ body {
   padding: 20px 24px;
 }
 .close_modal {
-  text-align: left;
+  text-align: right;
+  color: #000;
+}
+.form-modal {
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+.search-box {
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  text-align: center;
+}
+.search-box > form {
+  width: 100%;
+}
+.search-txt {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  font-size: 16px;
+}
+.search-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
+}
+.search-icon {
+  font-size: 16px;
+  color: #000;
+  font-weight: 600;
 }
