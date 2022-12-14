@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import FilterModal from "./FilterModal";
+import { Link } from "react-router-dom";
 
-interface Props {
-  handleClick: React.Dispatch<React.SetStateAction<string>>;
-  activeMenu?: string;
-}
-const Navbar = ({ handleClick, activeMenu }: Props) => {
+const Navbar = () => {
   const [openModal, setOpenModal] = useState<boolean>(false);
   const handleModal = () => {
     setOpenModal((prev) => !prev);
@@ -15,16 +12,21 @@ const Navbar = ({ handleClick, activeMenu }: Props) => {
       <div className="nav_wrapper">
         <h2 className="title">Rick and Morty</h2>
         <div className="btn_wrapper">
-          <button className="btn" onClick={() => handleClick("Characters")}>
-            Characters
+          <button className="btn">
+            <Link to="/" className="btn-link">
+              {" "}
+              Characters
+            </Link>
           </button>
-          <button className="btn" onClick={handleModal}>
-            {activeMenu === "Characters"
-              ? "Filter by characters"
-              : " Filter by episodes"}
+          <button className="btn">
+            <Link to="/filterCharacters" className="btn-link">
+              Filter by characters
+            </Link>
           </button>
-          <button className="btn" onClick={() => handleClick("Episodes")}>
-            Episodes
+          <button className="btn">
+            <Link to="/episodes" className="btn-link">
+              Episodes
+            </Link>
           </button>
         </div>
       </div>

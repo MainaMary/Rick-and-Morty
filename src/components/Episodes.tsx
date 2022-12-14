@@ -4,20 +4,25 @@ import { useQuery } from "react-query";
 import axios from "axios";
 import { AxiosError } from "axios";
 import EpisodesCard from "../components/EpisodesCard";
+import useCounterHook from "../useCounterHook";
 interface Props {
   data: any;
   error: AxiosError;
   isLoading: boolean;
 }
 const Episodes = () => {
-  const fetchEpisodes = async () => {
-    const response = await axios(`${baseUrl}/episode`);
-    return response.data;
+  const { page, handleNext, handlePrev } = useCounterHook();
+  const fetchEpisodes = async (page = 1) => {
+    const response = await axios(`${baseUrl}/episode?page=${page}`);
+    return response?.data;
   };
 
   const { data, error, isLoading, isSuccess }: any = useQuery(
-    ["fetchEpisodes"],
-    fetchEpisodes
+    ["fetchEpisodes", page],
+    () => fetchEpisodes(page),
+    {
+      keepPreviousData: true,
+    }
   );
   if (error) return <p>{`An error has occured ${error.message}`}</p>;
   console.log(data, "data");
@@ -30,6 +35,27 @@ const Episodes = () => {
               <EpisodesCard key={item.id} item={item} />
             ))
           : null}
+      </div>
+      <p>{`Page ${page} out of ${data?.info.pages}`}</p>
+      <div className="btn_wrapper">
+        <button
+          className="btn_pagination"
+          onClick={handlePrev}
+          disabled={page === 1}
+        >
+          Prev
+        </button>
+        <button
+          className="btn_pagination"
+          disabled={page === 42}
+          onClick={() => {
+            console.log("hey");
+            handleNext();
+          }}
+          // Disable the Next Page button until we know a next page is available
+        >
+          Next
+        </button>
       </div>
     </>
   );
