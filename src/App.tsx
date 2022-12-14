@@ -2,15 +2,22 @@ import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Characters from "./components/Characters";
 import Episodes from "./components/Episodes";
+import { Routes, Route } from "react-router-dom";
+import SearchResults from "./components/SearchResults";
+import SingleCharacter from "./components/SingleCharacter";
 
 function App() {
-  const [activeMenu, setActiveMenu] = useState<string>("Characters");
   return (
     <div className="App">
-      <Navbar handleClick={setActiveMenu} activeMenu={activeMenu} />
+      <Navbar />
       <div className="content">
         <div className="container">
-          {activeMenu === "Characters" ? <Characters /> : <Episodes />}
+          <Routes>
+            <Route path="/" element={<Characters />} />
+            <Route path="/episodes" element={<Episodes />} />
+            <Route path="/searchResults/:search" element={<SearchResults />} />
+            <Route path="/singleCharacter/:id" element={<SingleCharacter />} />
+          </Routes>
         </div>
       </div>
     </div>
