@@ -150,3 +150,14 @@ body {
   color: #000;
   font-weight: 600;
 }
+.btn-link {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+}
+.btn-link:hover {
+  color: aqua;
+}
+.sub-title {
+  text-align: center;
+}
