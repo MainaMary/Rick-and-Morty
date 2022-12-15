@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { baseUrl } from "../api";
 import { useQuery } from "react-query";
 import axios from "axios";
@@ -25,10 +25,11 @@ const Episodes = () => {
     }
   );
   if (error) return <p>{`An error has occured ${error.message}`}</p>;
-  console.log(data, "data");
+
   return (
     <>
       <div>{isLoading && <p>Loading...</p>}</div>
+
       <div className="episode_Wrapper">
         {isSuccess && data.results.length
           ? data.results.map((item: any) => (

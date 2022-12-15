@@ -14,14 +14,11 @@ const Navbar = () => {
         <div className="btn_wrapper">
           <button className="btn">
             <Link to="/" className="btn-link">
-              {" "}
               Characters
             </Link>
           </button>
-          <button className="btn">
-            <Link to="/filterCharacters" className="btn-link">
-              Filter by characters
-            </Link>
+          <button className="btn" onClick={handleModal}>
+            Filter by characters
           </button>
           <button className="btn">
             <Link to="/episodes" className="btn-link">
