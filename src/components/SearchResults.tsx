@@ -19,15 +19,17 @@ const SearchResults = () => {
     ["filterCharacters", search, page],
     () => filterCharacters(page)
   );
-  if (isLoading) {
-    <p>Loading...</p>;
-  }
+
   if (isError) {
     <p>{error.message}</p>;
   }
   return (
     <div>
-      <h2 className="sub-title">`Search results for ${search}`</h2>
+      <h2 className="sub-title">
+        {isSuccess
+          ? `Search results for ${search} `
+          : `No search results found. Please try again`}
+      </h2>
       <div className="episode_Wrapper">
         {isSuccess && data.results.length
           ? data.results.map((item: any) => (

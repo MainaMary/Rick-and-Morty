@@ -40,10 +40,8 @@ const Characters = () => {
   return (
     <>
       <div>{isFetching && <p>Fetching...</p>}</div>
-      <Search />
-      <p style={{ textAlign: "center", color: "red", margin: "4px 0" }}>
-        {searchError}
-      </p>
+
+      <p className="search-title">{searchError}</p>
       <h2>All characters</h2>
       <div className="episode_Wrapper">
         {isSuccess && data.results.length

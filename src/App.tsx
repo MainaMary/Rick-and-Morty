@@ -5,11 +5,13 @@ import Episodes from "./components/Episodes";
 import { Routes, Route } from "react-router-dom";
 import SearchResults from "./components/SearchResults";
 import SingleCharacter from "./components/SingleCharacter";
+import Search from "./components/Search";
 
 function App() {
   return (
     <div className="App">
       <Navbar />
+      <Search />
       <div className="content">
         <div className="container">
           <Routes>

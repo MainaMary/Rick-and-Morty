@@ -12,7 +12,9 @@ const Search = () => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
     if (!search) return;
+
     navigate(`/searchResults/${search}`);
+    setSearch("");
   };
   return (
     <div className="search-box">
