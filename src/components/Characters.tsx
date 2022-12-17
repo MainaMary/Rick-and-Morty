@@ -22,6 +22,8 @@ const Characters = () => {
 
       {
         keepPreviousData: true,
+
+        refetchOnMount: true,
       }
     );
 
@@ -34,10 +36,10 @@ const Characters = () => {
 
   if (isError) return <p>{`An error has occured ${error.message}`}</p>;
   console.log(data);
-  console.log(isLoading, isFetching);
+  console.log({ isLoading, isFetching });
   return (
     <>
-      <div>{isFetching && <p>Loading...</p>}</div>
+      <div>{isFetching && <p>Fetching...</p>}</div>
       <Search />
       <p style={{ textAlign: "center", color: "red", margin: "4px 0" }}>
         {searchError}

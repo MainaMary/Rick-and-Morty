@@ -27,11 +27,7 @@ const SearchResults = () => {
   }
   return (
     <div>
-      <h2 className="sub-title">
-        {isLoading
-          ? `Search results for ${search}`
-          : `No search results for '${search}' found. Please try again`}
-      </h2>
+      <h2 className="sub-title">`Search results for ${search}`</h2>
       <div className="episode_Wrapper">
         {isSuccess && data.results.length
           ? data.results.map((item: any) => (
