@@ -33,7 +33,7 @@ body {
   background-color: aqua;
   border: none;
   border-radius: 5px;
-  width: 15%;
+  width: 20%;
   color: #000;
   margin: auto;
   cursor: pointer;
@@ -194,6 +194,12 @@ body {
 }
 .sub-title {
   text-align: center;
+  margin: 10px 0;
+}
+.search-title {
+  text-align: center;
+  color: red;
+  margin: 4px 0;
 }
 .select {
   display: block;
