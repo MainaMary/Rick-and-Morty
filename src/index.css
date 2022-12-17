@@ -43,6 +43,20 @@ body {
   border: 1px solid aqua;
   background-color: #fff;
 }
+.submit-btn {
+  width: 30%;
+  padding: 12px 16px;
+  font-size: 16px;
+  text-transform: uppercase;
+  text-align: center;
+  outline: none;
+  background-color: aqua;
+  border: none;
+  border-radius: 5px;
+  color: #000;
+  margin: auto;
+  cursor: pointer;
+}
 .content {
   display: flex;
   width: 1000px;
@@ -136,6 +150,7 @@ body {
   outline: none;
   border: none;
   font-size: 16px;
+  color: #777;
 }
 .search-btn {
   position: absolute;
@@ -160,4 +175,26 @@ body {
 }
 .sub-title {
   text-align: center;
+}
+.select {
+  display: block;
+  width: 100%;
+  margin: 20px 0;
+}
+.select select {
+  width: 100%;
+  padding: 10px 0;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #777;
+  font-weight: 500;
+  font-size: 16px;
+}
+.close_modal {
+  display: flex;
+  justify-content: space-between;
+}
+.close-icon {
+  font-size: 20px;
+  cursor: pointer;
 }

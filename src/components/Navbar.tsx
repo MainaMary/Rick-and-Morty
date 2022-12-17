@@ -17,9 +17,9 @@ const Navbar = () => {
               Characters
             </Link>
           </button>
-          <button className="btn" onClick={handleModal}>
+          {/* <button className="btn" onClick={handleModal}>
             Filter by characters
-          </button>
+          </button> */}
           <button className="btn">
             <Link to="/episodes" className="btn-link">
               Episodes

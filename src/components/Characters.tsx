@@ -22,7 +22,6 @@ const Characters = () => {
 
       {
         keepPreviousData: true,
-        cacheTime: 2000,
       }
     );
 

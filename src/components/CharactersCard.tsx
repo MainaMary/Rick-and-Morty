@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 const CharactersCard = ({ item }: any) => {
-  console.log(item, "item");
   const navigate = useNavigate();
   const episode = item.episode[0].split("/").slice(-2).join(" ");
 
