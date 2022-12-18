@@ -26,7 +26,7 @@ const SearchResults = () => {
   return (
     <div>
       <h2 className="sub-title">
-        {isSuccess
+        {isSuccess && data?.results?.length
           ? `Search results for ${search} `
           : `No search results found. Please try again`}
       </h2>
