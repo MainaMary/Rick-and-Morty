@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import axios from "axios";
 import { baseUrl } from "../api";
+import CharactersCard from "./CharactersCard";
 
 const SingleCharacter = () => {
   const { id } = useParams();
@@ -10,13 +11,24 @@ const SingleCharacter = () => {
     console.log(id, "id");
     const res = await axios(`${baseUrl}/character/${id}`);
     console.log(res.data);
+    return res?.data;
   };
-  const { data, isLoading, error, isError } = useQuery(
+  const { data, isLoading, isSuccess, error, isError } = useQuery(
     ["singleCharacter", id],
     () => fetchSingleCharacterInfo(id)
   );
 
-  return <div>SingleCharacter</div>;
+  console.log(data, "data");
+
+  return (
+    <div>
+      <div className="episode_Wrapper">
+        {isSuccess && data ? (
+          <CharactersCard key={data.id} item={data} />
+        ) : null}
+      </div>
+    </div>
+  );
 };
 
 export default SingleCharacter;
