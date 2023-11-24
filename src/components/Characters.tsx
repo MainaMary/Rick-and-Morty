@@ -27,6 +27,7 @@ const Characters = () => {
       }
     );
 
+    console.log(data,'data')
   if (isLoading) {
     <p>Loading...</p>;
   }
