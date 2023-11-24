@@ -19,16 +19,17 @@ const SearchResults = () => {
     ["filterCharacters", search, page],
     () => filterCharacters(page)
   );
-
   if (isError) {
     <p>{error.message}</p>;
   }
   return (
     <div>
       <h2 className="sub-title">
-        {isSuccess && data?.results?.length
-          ? `Search results for ${search} `
-          : `No search results found. Please try again`}
+        {!isSuccess && isLoading && "No results found. Please try again"}
+      </h2>
+
+      <h2 className="sub-title">
+        {isSuccess && data?.results?.length && `Search results for ${search} `}
       </h2>
       <div className="episode_Wrapper">
         {isSuccess && data.results.length
@@ -50,7 +51,7 @@ const SearchResults = () => {
             </button>
             <button
               className="btn_pagination"
-              disabled={page === 42}
+              disabled={page === data?.info.pages}
               onClick={() => {
                 console.log("hey");
                 handleNext();

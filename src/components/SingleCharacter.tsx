@@ -22,6 +22,7 @@ const SingleCharacter = () => {
 
   return (
     <div>
+      {isLoading && <p>Loading results...</p>}
       <div className="episode_Wrapper">
         {isSuccess && data ? (
           <CharactersCard key={data.id} item={data} />

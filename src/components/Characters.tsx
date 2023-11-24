@@ -15,28 +15,25 @@ const Characters = () => {
     const response = await axios(`${baseUrl}/character?page=${page}`);
     return response?.data;
   };
-  const { data, error, isSuccess, isLoading, isFetching, isError }: any =
-    useQuery(
-      ["fetchCharacters", page],
-      () => fetchCharacters(page),
+  const { data, error, isSuccess, isLoading, isFetching, isError } = useQuery(
+    ["fetchCharacters", page],
+    () => fetchCharacters(page),
 
-      {
-        keepPreviousData: true,
+    {
+      keepPreviousData: true,
 
-        refetchOnMount: true,
-      }
-    );
+      refetchOnMount: true,
+    }
+  );
 
-    console.log(data,'data')
+  console.log(data, "data");
   if (isLoading) {
     <p>Loading...</p>;
   }
-  if (isError) {
-    return <p>{error.message}</p>;
+  if (isError && error instanceof Error) {
+    return <p className="error">{error.message}</p>;
   }
 
-  if (isError) return <p>{`An error has occured ${error.message}`}</p>;
-  console.log(data);
   console.log({ isLoading, isFetching });
   return (
     <>

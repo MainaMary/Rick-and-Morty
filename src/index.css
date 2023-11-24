@@ -70,17 +70,19 @@ body {
 /* episode card */
 .episode_Card {
   box-shadow: 0 0 3px #000;
-  padding: 10px 12px;
+  padding: 20px 12px;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.1);
   color: #fff;
   border-radius: 5px;
+  text-align: center;
 }
 .episode_Wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 3fr));
   grid-gap: 3rem;
   margin: 40px auto;
+  cursor: pointer;
 }
 .image_card {
   width: 280px;
@@ -98,7 +100,14 @@ body {
   width: 100px;
   color: #000;
   margin: auto;
+  cursor: pointer;
 }
+.btn_pagination:disabled {
+  background-color: lightgray;
+  color: #999;
+  cursor: not-allowed
+}
+  
 .btn_wrapper {
   display: flex;
   width: 100%;
@@ -116,7 +125,7 @@ body {
 }
 @media screen and (max-width: 480px) {
   .btn_wrapper {
-    flex-direction: column;
+    width:50%;
   }
   .btn {
     width: 60%;
@@ -124,6 +133,9 @@ body {
   .image_card {
     width: 100px;
   }
+}
+.error{
+color:red;
 }
 /* filter modal */
 .modal_wrapper {

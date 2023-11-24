@@ -25,7 +25,7 @@ const Episodes = () => {
     }
   );
   if (error) return <p>{`An error has occured ${error.message}`}</p>;
-
+  console.log(data?.results, "data");
   return (
     <>
       <div>{isLoading && <p>Loading...</p>}</div>
@@ -48,7 +48,7 @@ const Episodes = () => {
         </button>
         <button
           className="btn_pagination"
-          disabled={page === 42}
+          disabled={page === data?.info.pages}
           onClick={() => {
             console.log("hey");
             handleNext();

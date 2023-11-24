@@ -5,11 +5,11 @@ import { useNavigate } from "react-router-dom";
 const Search = () => {
   const navigate = useNavigate();
   const [search, setSearch] = useState<string>("");
-  const handleSearch = (e: any) => {
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!search) return;
 
