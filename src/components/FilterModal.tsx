@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { baseUrl } from "../api";
 import { useQuery } from "react-query";
-
+import { statusState, genderState } from "../recoil/atom";
+import { useRecoilState } from "recoil";
+import { useNavigate } from "react-router-dom";
 interface Props {
   openModal: boolean;
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -10,8 +12,8 @@ interface Props {
 }
 const FilterModal = ({ openModal, handleModal }: Props) => {
   const [search, setSearch] = useState<string>("");
-  const [statusSelect, setStatusSelect] = useState<string>("");
-  const [genderType, setGenderType] = useState<string>("");
+  const [statusSelect, setStatusSelect] = useRecoilState(statusState);
+  const [genderType, setGenderType] = useRecoilState(genderState);
 
   if (!openModal) {
     return null;
@@ -48,9 +50,7 @@ const FilterModal = ({ openModal, handleModal }: Props) => {
       label: "Unknown",
     },
   ];
-  const handleChange = (e: any) => {
-    setSearch(e.target.value);
-  };
+
   const handleStatus = (e: any) => {
     setStatusSelect(e.target.value);
   };
@@ -61,49 +61,30 @@ const FilterModal = ({ openModal, handleModal }: Props) => {
     status: string;
     gender: string;
   }
-  const params: any = {
-    status: statusSelect,
-    gender: genderType,
-  };
-  let obj: any = {};
-  let str: any;
-  for (const key in params) {
-    if (params[key]) {
-      obj[key] = params[key];
-    }
-  }
-  if (obj.length === 1) {
-    str = Object.keys(obj) + "=" + Object.values(obj).join("&");
-    console.log(str, "params");
-  } else {
-    const res = Object.entries(obj);
-    str = res.filter((item) => {
-      return Object.values(item).every(
-        (el) => el !== null && el !== undefined && el !== ""
-      );
-    });
-    console.log((str[0][0] = str[0][1]));
-  }
 
-  const fetchCharacters = async (search: string) => {
+  const fetchCharacters = async (genderType: string, statusSelect: string) => {
     const response = await axios(
-      `${baseUrl}/character/?name=${search}&status=alive`
+      `${baseUrl}/character/?gender=${genderType}&status=${statusSelect}`
     );
+    console.log(response.data);
     return response?.data;
   };
   const { data, refetch, isLoading, isSuccess }: any = useQuery(
     ["fetchCharacters", search],
-    () => fetchCharacters(search),
+    () => fetchCharacters(genderType, statusSelect),
     {
       keepPreviousData: true,
       enabled: false,
     }
   );
-
-  const handleSubmit = (e: any) => {
+  const navigate = useNavigate();
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!search) return;
-    refetch();
+    navigate(`/filter?gender=${genderType}&status=${statusSelect}`);
+    handleModal();
+    setGenderType("");
+    setStatusSelect("");
+    window.location.reload();
   };
   console.log(statusSelect, genderType, "data");
   return (
@@ -138,7 +119,9 @@ const FilterModal = ({ openModal, handleModal }: Props) => {
           </select>
         </div>
         <div>
-          <button className="submit-btn">Submit</button>
+          <button type="submit" className="submit-btn">
+            Submit
+          </button>
         </div>
       </form>
     </div>

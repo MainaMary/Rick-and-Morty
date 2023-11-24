@@ -110,9 +110,22 @@ body {
   
 .btn_wrapper {
   display: flex;
-  width: 100%;
+  width: 70%;
   justify-content: space-between;
-  margin: 40px 0;
+  margin: 40px auto;
+}
+.btn_modal{
+padding: 12px 8px;
+  font-size: 16px;
+  text-align: center;
+  outline: none;
+  background-color: #fff;
+  border: none;
+  border-radius: 5px;
+  width: 100px;
+  color: #000;
+  margin: auto;
+  cursor: pointer;
 }
 @media screen and (max-width: 768px) {
   .episode_Wrapper {

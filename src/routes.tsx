@@ -3,7 +3,7 @@ import Characters from "./components/Characters";
 import Episodes from "./components/Episodes";
 import SearchResults from "./components/SearchResults";
 import SingleCharacter from "./components/SingleCharacter";
-import App from "./App";
+import FilterCharacters from "./components/FilterCharacters";
 const appRoutes = [
   {
     path: "/",
@@ -20,6 +20,10 @@ const appRoutes = [
   {
     path: "/singleCharacter/:id",
     component: <SingleCharacter />,
+  },
+  {
+    path: "/filter",
+    component: <FilterCharacters />,
   },
 ];
 

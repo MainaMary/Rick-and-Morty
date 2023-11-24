@@ -25,6 +25,9 @@ const Navbar = () => {
               Episodes
             </Link>
           </button>
+          <button className="btn_modal" onClick={handleModal}>
+            filter
+          </button>
         </div>
       </div>
       {openModal && (

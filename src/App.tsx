@@ -5,6 +5,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
+
       <Search />
       <div className="content">
         <div className="container">
